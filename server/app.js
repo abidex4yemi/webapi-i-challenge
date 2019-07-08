@@ -8,7 +8,7 @@ const { userRoutes } = require('./routes/user');
 /**
  * Module constants
  */
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 // Initializes express app
 const app = express();
@@ -22,7 +22,7 @@ const app = express();
 app.use(express.json());
 
 // [enable `cors`] Allow cross origin resource sharing
-app.use(cors);
+app.use(cors());
 
 // Handle home route request and response
 app.get('/', (request, response) => {
