@@ -1,7 +1,7 @@
 /**
  * Module dependencies
  */
-const { remove } = require('../../data/db');
+const { remove, find } = require('../../data/db');
 
 /**
  * Delete a user record
@@ -9,13 +9,21 @@ const { remove } = require('../../data/db');
  * @param {object} request 
  * @param {object} response 
  */
-const deleteUser = async (request, response) => {
+const deleteUser = async (request, response, next) => {
 	const { id } = request.params;
 
-	const deletedUser = await remove(id);
+	const deletedUserId = await remove(id);
+
+	if (!deletedUserId) {
+		const error = new Error();
+		error.message = `User with ID ${id} does not exist`;
+		return next(error);
+	}
+
+	const users = await find();
 
 	return response.status(200).json({
-		data: [{ id: deletedUser }],
+		data: users,
 		error: null
 	});
 };
