@@ -12,6 +12,14 @@ const PORT = process.env.PORT || 3000;
 // Initializes express app
 const app = express();
 
+/**
+ * App middleware setup
+ */
+
+// parse application/json
+// parse url-encoded
+app.use(express.json());
+
 // Handle home route request and response
 app.get('/', (request, response) => {
 	return response.status(400).json({
