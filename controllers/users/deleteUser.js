@@ -3,6 +3,12 @@
  */
 const { remove } = require('../../data/db');
 
+/**
+ * Delete a user record
+ * 
+ * @param {object} request 
+ * @param {object} response 
+ */
 const deleteUser = async (request, response) => {
 	const { id } = request.params;
 

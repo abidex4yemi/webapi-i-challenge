@@ -3,6 +3,12 @@
  */
 const { update, findById } = require('../../data/db');
 
+/**
+ * Update a user details
+ * 
+ * @param {object} request 
+ * @param {object} response 
+ */
 const updateUser = async (request, response) => {
 	// Get user id
 	const userID = request.params.id;

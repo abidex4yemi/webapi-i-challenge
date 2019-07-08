@@ -1,5 +1,5 @@
 /**
- * Module dependents
+ * Module dependencies
  */
 const express = require('express');
 const Router = express.Router();

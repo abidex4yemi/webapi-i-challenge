@@ -3,6 +3,12 @@
  */
 const { find } = require('../../data/db');
 
+/**
+ * Return all users from users table
+ * 
+ * @param {object} request 
+ * @param {object} response 
+ */
 const getAllUsers = async (request, response) => {
 	// get all users
 	const users = await find();

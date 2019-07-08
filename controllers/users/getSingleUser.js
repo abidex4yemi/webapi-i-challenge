@@ -3,6 +3,12 @@
  */
 const { findById } = require('../../data/db');
 
+/**
+ * Return a single user
+ * 
+ * @param {object} request 
+ * @param {object} response 
+ */
 const getSingleUser = async (request, response) => {
 	// get requested user id
 	const { id } = request.params;
