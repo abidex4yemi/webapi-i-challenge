@@ -47,4 +47,11 @@ app.all('*', (request, response) => {
 	});
 });
 
+//Handle core server error or user error
+app.use((request, response, error) => {
+	return response.status(error.status || 500).json({
+		error: error.message
+	});
+});
+
 app.listen(PORT, console.log(`Server running on port: ${PORT}`));
