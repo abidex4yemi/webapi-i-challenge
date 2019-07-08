@@ -2,6 +2,7 @@
  * Module dependencies
  */
 const express = require('express');
+const { userRoutes } = require('./routes/user');
 
 /**
  * Module constants
@@ -22,6 +23,9 @@ app.get('/', (request, response) => {
 		error: null
 	});
 });
+
+// Handle users route
+app.use('/api/v1', userRoutes);
 
 // Handle invalid endpoint request
 app.all('*', (request, response) => {
