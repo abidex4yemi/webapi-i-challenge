@@ -2,6 +2,7 @@
  * Module dependencies
  */
 const express = require('express');
+const cors = require('cors');
 const { userRoutes } = require('./routes/user');
 
 /**
@@ -19,6 +20,9 @@ const app = express();
 // parse application/json
 // parse url-encoded
 app.use(express.json());
+
+// [enable `cors`] Allow cross origin resource sharing
+app.use(cors);
 
 // Handle home route request and response
 app.get('/', (request, response) => {
