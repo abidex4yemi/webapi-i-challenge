@@ -23,4 +23,16 @@ app.get('/', (request, response) => {
 	});
 });
 
+// Handle invalid endpoint request
+app.all('*', (request, response) => {
+	return response.status(400).json({
+		data: [
+			{
+				message: 'Route does not exist...'
+			}
+		],
+		error: null
+	});
+});
+
 app.listen(PORT, console.log(`Server running on port: ${PORT}`));
