@@ -5,11 +5,11 @@ import { FriendList } from './FriendList';
 import { FriendForm } from './FriendForm';
 
 export const Friends = props => {
-	const { friends } = props;
+	const { friends, deleteUser } = props;
 
 	return (
 		<FriendsStyled>
-			<FriendList friends={friends} />
+			<FriendList friends={friends} deleteUser={deleteUser} />
 			<div>
 				<FriendForm />
 			</div>
@@ -18,7 +18,8 @@ export const Friends = props => {
 };
 
 Friends.propTypes = {
-	friends: PropTypes.array.isRequired
+	friends: PropTypes.array.isRequired,
+	deleteUser: PropTypes.func.isRequired
 };
 
 const FriendsStyled = styled.div`

@@ -27,15 +27,30 @@ export const App = () => {
 	}, []);
 
 	const getAllFriends = () => {
-		return axios(`${BASE_URL}/users`)
+		return axios
+			.get(`${BASE_URL}/users`)
 			.then(response => response.data)
+			.catch(error => error);
+	};
+
+	const deleteUser = id => {
+		axios
+			.delete(`${BASE_URL}/users/${id}`)
+			.then(response => {
+				const { data } = response.data;
+
+				setState(prevState => ({
+					...prevState,
+					friends: data
+				}));
+			})
 			.catch(error => error);
 	};
 
 	return (
 		<main>
 			<ContainerStyled>
-				<Friends friends={state.friends} />
+				<Friends friends={state.friends} deleteUser={deleteUser} />
 			</ContainerStyled>
 		</main>
 	);
