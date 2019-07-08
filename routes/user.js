@@ -3,7 +3,7 @@
  */
 const express = require('express');
 const Router = express.Router();
-const { getAllUsers, getSingleUser, createUser } = require('../controllers/users');
+const { getAllUsers, getSingleUser, createUser, updateUser } = require('../controllers/users');
 
 // [GET] Handle get all users routes
 Router.get('/users', getAllUsers);
@@ -13,5 +13,8 @@ Router.get('/users/:id', getSingleUser);
 
 // [POST] Handle create new user request
 Router.post('/users', createUser);
+
+// [PUT] Handle update user request
+Router.put('/users/:id', updateUser);
 
 module.exports.userRoutes = Router;
