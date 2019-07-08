@@ -2,9 +2,9 @@
   "name": "nodemini",
   "version": "1.0.0",
   "description": "Express Demo",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "server": "nodemon app.js"
+    "server": "nodemon"
   },
   "repository": {
     "type": "git",
