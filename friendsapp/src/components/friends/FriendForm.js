@@ -8,7 +8,7 @@ export const FriendForm = props => {
 			</div>
 
 			<div>
-				<textarea cols="20" rows="20" />
+				<textarea cols="20" rows="10" />
 			</div>
 
 			<button type="button">Add</button>
